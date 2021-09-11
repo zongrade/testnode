@@ -1,13 +1,23 @@
 <h1>Добавить новый Предмет</h1>
-
+{{#if error}}
+  <p class="alert">{{error}}</p>
+{{/if}}
 <form action="/add" method="POST">
   <div class="input-field">
-    <input id="title" name="title" type="text" class="validate" required />
+    <input
+      id="title"
+      name="title"
+      type="text"
+      class="validate"
+      required
+      value="{{data.title}}"
+    />
     <label for="title">Название предмета</label>
     <span class="helper-text" data-error="Введите название"></span>
   </div>
   <div class="input-field">
     <input
+      value="{{data.price}}"
       id="price"
       name="price"
       type="number"
@@ -19,7 +29,14 @@
     <span class="helper-text" data-error="Введите цену"></span>
   </div>
   <div class="input-field">
-    <input id="img" name="img" type="text" class="validate" required />
+    <input
+      id="img"
+      name="img"
+      type="text"
+      class="validate"
+      required
+      value="{{data.img}}"
+    />
     <label for="img">URL картинки</label>
     <span class="helper-text" data-error="Введите URL"></span>
   </div>
