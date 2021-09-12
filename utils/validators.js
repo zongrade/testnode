@@ -4,7 +4,8 @@ const User = require('../models/user')
 exports.registerValidators = [
     body('email').isEmail().withMessage('Некорректный email').custom(async (value, req) => {
         try {
-            const user = await User.findOne({ emal: value })
+            const user = await User.findOne({ emal: req.body.email })
+            const { name, email } = user
             if (user) {
                 return Promise.reject('Такой email уже есть')
             }
