@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
     secure: false,
     service: 'gmail',
     auth: {
-        user: 'zongrade@gmail.com',
+        user: keys.EMAIL_FROM,
         pass: keys.PASSWORD_GMAIL,
     }
 })
